@@ -104,18 +104,18 @@ jobs:
             echo "CARGO_NET_GIT_FETCH_WITH_CLI=true"
           ) > .env_file
 
-      - name: Build wheels
-        if: needs.init.outputs.requirements == 'true'
-        uses: home-assistant/wheels@2024.07.1
-        with:
-          abi: cp312
-          tag: musllinux_1_2
-          arch: ${{ matrix.arch }}
-          wheels-key: ${{ secrets.WHEELS_KEY }}
-          apk: "libffi-dev;openssl-dev;yaml-dev"
-          skip-binary: aiohttp
-          env-file: true
-          requirements: "requirements.txt"
+      # - name: Build wheels
+      #   if: needs.init.outputs.requirements == 'true'
+      #   uses: home-assistant/wheels@2024.07.1
+      #   with:
+      #     abi: cp312
+      #     tag: musllinux_1_2
+      #     arch: ${{ matrix.arch }}
+      #     wheels-key: ${{ secrets.WHEELS_KEY }}
+      #     apk: "libffi-dev;openssl-dev;yaml-dev"
+      #     skip-binary: aiohttp
+      #     env-file: true
+      #     requirements: "requirements.txt"
 
       - name: Set version
         if: needs.init.outputs.publish == 'true'
