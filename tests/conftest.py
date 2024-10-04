@@ -79,7 +79,7 @@ async def supervisor_name() -> None:
 @pytest.fixture
 async def docker() -> DockerAPI:
     """Mock DockerAPI."""
-    images = [MagicMock(tags=["ghcr.io/home-assistant/amd64-hassio-supervisor:latest"])]
+    images = [MagicMock(tags=["ghcr.io/vioneta/amd64-hassio-supervisor:latest"])]
     image = MagicMock()
     image.attrs = {"Os": "linux", "Architecture": "amd64"}
 

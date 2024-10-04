@@ -11,8 +11,8 @@ def test_no_credentials(coresys: CoreSys):
     coresys.docker.config.registries = {
         DOCKER_HUB: {"username": "Spongebob Squarepants", "password": "Password1!"}
     }
-    assert not docker._get_credentials("ghcr.io/homeassistant")
-    assert not docker._get_credentials("ghcr.io/homeassistant/amd64-supervisor")
+    assert not docker._get_credentials("ghcr.io/vioneta")
+    assert not docker._get_credentials("ghcr.io/vioneta/amd64-supervisor")
 
 
 def test_no_matching_credentials(coresys: CoreSys):
@@ -21,8 +21,8 @@ def test_no_matching_credentials(coresys: CoreSys):
     coresys.docker.config.registries = {
         DOCKER_HUB: {"username": "Spongebob Squarepants", "password": "Password1!"}
     }
-    assert not docker._get_credentials("ghcr.io/homeassistant")
-    assert not docker._get_credentials("ghcr.io/homeassistant/amd64-supervisor")
+    assert not docker._get_credentials("ghcr.io/vioneta")
+    assert not docker._get_credentials("ghcr.io/vioneta/amd64-supervisor")
 
 
 def test_matching_credentials(coresys: CoreSys):
@@ -33,9 +33,9 @@ def test_matching_credentials(coresys: CoreSys):
         DOCKER_HUB: {"username": "Spongebob Squarepants", "password": "Password1!"},
     }
 
-    credentials = docker._get_credentials("ghcr.io/homeassistant/amd64-supervisor")
+    credentials = docker._get_credentials("ghcr.io/vioneta/amd64-supervisor")
     assert credentials["registry"] == "ghcr.io"
 
-    credentials = docker._get_credentials("homeassistant/amd64-supervisor")
+    credentials = docker._get_credentials("vioneta/amd64-supervisor")
     assert credentials["username"] == "Spongebob Squarepants"
     assert "registry" not in credentials

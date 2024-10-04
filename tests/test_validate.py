@@ -17,18 +17,18 @@ DNS_GOOD_V6 = [
 ]
 DNS_BAD = ["hello world", "https://foo.bar", "", "dns://example.com"]
 IMAGE_NAME_GOOD = [
-    "ghcr.io/home-assistant/{machine}-homeassistant",
-    "ghcr.io/home-assistant/{arch}-homeassistant",
-    "homeassistant/{arch}-homeassistant",
-    "doocker.io/homeassistant/{arch}-homeassistant",
-    "ghcr.io/home-assistant/amd64-homeassistant",
-    "homeassistant/amd64-homeassistant",
+    "ghcr.io/vioneta/{machine}-vionetaos",
+    "ghcr.io/vioneta/{arch}-vionetaos",
+    "vioneta/{arch}-vionetaos",
+    "doocker.io/vioneta/{arch}-vionetaos",
+    "ghcr.io/vioneta/amd64-vionetaos",
+    "vioneta/amd64-vionetaos",
     "ttl.sh/homeassistant",
     "myreg.local:8080/homeassistant",
 ]
 IMAGE_NAME_BAD = [
-    "ghcr.io/home-assistant/homeassistant:123",
-    ".ghcr.io/home-assistant/homeassistant",
+    "ghcr.io/vioneta/homeassistant:123",
+    ".ghcr.io/vioneta/homeassistant",
     "HOMEASSISTANT/homeassistant",
     "homeassistant/HOMEASSISTANT",
     "homeassistant/_homeassistant",

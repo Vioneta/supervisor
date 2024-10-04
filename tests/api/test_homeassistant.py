@@ -71,7 +71,7 @@ async def test_api_set_options(api_client: TestClient, coresys: CoreSys):
 async def test_api_set_image(api_client: TestClient, coresys: CoreSys):
     """Test changing the image for homeassistant."""
     assert (
-        coresys.homeassistant.image == "ghcr.io/home-assistant/qemux86-64-homeassistant"
+        coresys.homeassistant.image == "ghcr.io/vioneta/qemux86-64-vionetaos"
     )
     assert coresys.homeassistant.override_image is False
 
@@ -88,12 +88,12 @@ async def test_api_set_image(api_client: TestClient, coresys: CoreSys):
     with patch.object(HomeAssistant, "save_data"):
         resp = await api_client.post(
             "/homeassistant/options",
-            json={"image": "ghcr.io/home-assistant/qemux86-64-homeassistant"},
+            json={"image": "ghcr.io/vioneta/qemux86-64-vionetaos"},
         )
 
     assert resp.status == 200
     assert (
-        coresys.homeassistant.image == "ghcr.io/home-assistant/qemux86-64-homeassistant"
+        coresys.homeassistant.image == "ghcr.io/vioneta/qemux86-64-vionetaos"
     )
     assert coresys.homeassistant.override_image is False
 
